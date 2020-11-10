@@ -12,7 +12,7 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int energy;
         public int attackPower;
-        public List<Action<Robot>> dinoAttacks;
+        //public List<Action<Robot>> dinoAttacks;
         
         
         //constructors
@@ -22,86 +22,122 @@ namespace Robots_Vs_Dinosaurs
             this.health = health;
             this.energy = energy;
             this.attackPower = attackPower;
-            dinoAttacks = new List<Action<Robot>>();
-            DinoAttackList();
+           // dinoAttacks = new List<Action<Robot>>();
+           // DinoAttackList();
         }
         
         //member methods
-        public void DinoAttackList()
-        {
-            dinoAttacks.Add(JawDropper);
-            dinoAttacks.Add(MeatGrinder);
-            dinoAttacks.Add(Calamity);
-        }
-        public void JawDropper(Robot robot)
+        //public void DinoAttackList()
+        //{
+           // dinoAttacks.Add(JawDropper);
+            //dinoAttacks.Add(MeatGrinder);
+            //dinoAttacks.Add(Calamity);
+        //}
+        public bool JawDropper(Robot robot)
         {
             if (energy > 25)
             {
                 energy -= 25;
             }
-            else if(energy < 25)
+            else if(energy < 25 && energy != 0)
             {
                 energy -= energy;
+                Console.WriteLine("Energy levels have been depleted.");
+            }
+            else if(energy == 0)
+            {
+                energy += 100;
+                Console.WriteLine("Energy levels have been restored");
             }
             if (robot.health > 40)
             {
                 robot.health -= 40;
+                Console.WriteLine("Jaw Dropper attack was highly effective!");
             }
             else if(robot.health < 40)
             {
                 robot.health -= robot.health;
+                return false;
+            }
+            return true;
+        }
+        public void HideRecover(Robot robot)
+        {
+            if(energy > 50)
+            {
+                energy -= 50;
+            }
+            else if(energy < 50 && energy != 0)
+            {
+                energy -= energy;
+            }
+            else if(energy == 0)
+            {
+                energy += 100;
+                Console.WriteLine("Energy has been restored to 100");
+            }
+            if (health > 0 && health < 85)
+            {
+                health += 15;
             }
         }
-        public void HideRecover(Dinosaur dinosaur)
+        public bool MeatGrinder(Robot robot)
         {
-            if(dinosaur.energy > 50 && dinosaur.energy <= 100)
-            {
-                dinosaur.energy += 50;
-            }
-            if (dinosaur.health > 0 && dinosaur.health < 85)
-            {
-                dinosaur.health += 15;
-            }
-        }
-        public void MeatGrinder(Robot robot)
-        {
-            if(energy >= 25)
+            if (energy >= 25)
             {
                 energy -= 25;
             }
-            else if(energy < 25)
+            else if (energy < 25 && energy != 0)
             {
                 energy -= energy;
+            }
+            else if (energy == 0)
+            {
+                energy += 100;
+                Console.WriteLine("Energy has been restored.");
             }
             if(robot.health >= 20)
             {
                 robot.health -= 20;
+                Console.WriteLine("Meat Grinder was highly effective!");
             }
             else if(robot.health < 20)
             {
                 robot.health -= robot.health;
+                Console.WriteLine("Robot has been destroyed!");
+                return false;
             }
+            return true;
         }
-        public void Calamity(Robot robot)
+        public bool Calamity(Robot robot)
         {
 
             if (energy > 40)
             {
                 energy -= 40;
             }
-            else if (energy < 40)
+            else if (energy < 40 && energy != 0)
             {
                 energy -= energy;
+                Console.WriteLine("Dino needs to rest.");
+            }
+            else if(energy == 0)
+            {
+                energy += 100;
+                Console.WriteLine("Dino is restored to 100 and ready to fight!");
             }
             if (robot.health > 20)
             {
                 robot.health -= 20;
+                Console.WriteLine("Calamity proved devastating.");
             }
             else if (robot.health < 20)
             {
                 robot.health -= robot.health;
+                Console.WriteLine("Robot has been decomissioned!");
+                return false;
             }
-            
+            return true;
         }
     }
 }

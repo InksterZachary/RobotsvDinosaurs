@@ -110,7 +110,7 @@ namespace Robots_Vs_Dinosaurs
             }
             else if(health == 0)
             {
-                Console.WriteLine("Robot has already been decommissioned and can not be rebuilt.");
+                Console.WriteLine("Dinosaur has been killed and can not be resurrected.");
             }
         }
         public bool Spray(Dinosaur dinosaur)
