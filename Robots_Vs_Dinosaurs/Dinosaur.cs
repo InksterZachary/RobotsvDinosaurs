@@ -23,6 +23,7 @@ namespace Robots_Vs_Dinosaurs
             this.energy = energy;
             this.attackPower = attackPower;
             dinoAttacks = new List<Action<Robot>>();
+            AttackList();
         }
         
         //member methods

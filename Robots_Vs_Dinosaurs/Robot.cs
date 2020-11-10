@@ -14,6 +14,7 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int powerLevel;
         public Weapon weapon;
+        public List<Action<Dinosaur>> roboAttack;
         
 
         //constructors
@@ -23,9 +24,17 @@ namespace Robots_Vs_Dinosaurs
             this.health = health;
             this.powerLevel = powerLevel;
             this.weapon = weapon;
+            roboAttack = new List<Action<Dinosaur>>();
+            RobotAttackList();
         }
         
         //member methods
+        public void RobotAttackList()
+        {
+            roboAttack.Add(LaserBlast);
+            roboAttack.Add(Spray);
+            roboAttack.Add(Devastation);
+        }
         public void LaserBlast(Dinosaur dinosaur) 
         {
             if (powerLevel >= 20)
@@ -90,7 +99,7 @@ namespace Robots_Vs_Dinosaurs
                 health -= health;
             }
         }
-        public void GroupAttack(List<Dinosaur> dinoTeam)
+        public void Devastation(Dinosaur dinosaur)
         {
             if (powerLevel > 30)
             {
@@ -100,17 +109,15 @@ namespace Robots_Vs_Dinosaurs
             {
                 powerLevel -= powerLevel;
             }
-            foreach(Dinosaur dinosaur in dinoTeam)
+            if (health > 40)
             {
-                if(health > 10)
-                {
-                    health -= 10;
-                }
-                else if(health < 10)
-                {
-                    health -= health;
-                }
+                health -= 40;
             }
+            else if (health < 40)
+            {
+                health -= health;
+            }
+           
         }
 
     }
