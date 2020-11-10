@@ -13,16 +13,17 @@ namespace Robots_Vs_Dinosaurs
         public string name;
         public int health;
         public int powerLevel;
-        public string weapon;
+        public Weapon weapon;
 
         //constructors
-        public Robot(string name, int health, int powerLevel, string weapon)
+        public Robot(string name, int health, int powerLevel, Weapon weapon)
         {
             this.name = name;
             this.health = health;
             this.powerLevel = powerLevel;
             this.weapon = weapon;
         }
+        
         //member methods
 
 

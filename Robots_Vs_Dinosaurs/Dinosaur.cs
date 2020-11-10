@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Robots_Vs_Dinosaurs
 {
     class Dinosaur
     {
         //member variables
+        
         public string type;
         public int health;
         public int energy;
@@ -18,6 +20,7 @@ namespace Robots_Vs_Dinosaurs
             this.energy = energy;
             this.attackPower = attackPower;
         }
+        
         //member methods
 
 

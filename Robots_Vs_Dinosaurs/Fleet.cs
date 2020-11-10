@@ -8,9 +8,25 @@ namespace Robots_Vs_Dinosaurs
 {
     class Fleet
     {
-        List<Robot> roboTeam = new List<Robot>();
-        Robot cyborg = new Robot("Cyborg",100,200,"Laser Rifle");
-        Robot metalHead = new Robot("Metal Head", 200, 100, "Shot Gun");
-        Robot terminator = new Robot("Terminator", 500, 250, "Gatling Gun");
+        public List<Robot> robots;
+
+        public Fleet()
+        {
+            robots = new List<Robot>();
+            populateFleet();
+        }
+        public void populateFleet()
+        {
+            Weapon laserBlaster = new Weapon("Laser Blaster", "Energy", 25);
+            Weapon shotGun = new Weapon("Shot Gun", "Gun", 100);
+            Weapon gatGun = new Weapon("Laser Gatling Gun", "Energy", 10);
+
+            Robot cyborg = new Robot("Cyborg", 100, 200, laserBlaster);
+            Robot metalHead = new Robot("Metal Head", 200, 100, shotGun);
+            Robot terminator = new Robot("Terminator", 500, 250, gatGun);
+            robots.Add(cyborg);
+
+
+        }
     }
 }
