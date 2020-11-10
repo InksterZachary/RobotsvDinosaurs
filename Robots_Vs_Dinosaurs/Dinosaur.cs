@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Robots_Vs_Dinosaurs
 {
@@ -40,8 +41,17 @@ namespace Robots_Vs_Dinosaurs
             {
                 robot.health -= robot.health;
             }
-
-            
+        }
+        public void HideRecover(Dinosaur dinosaur)
+        {
+            if(dinosaur.energy > 50 && dinosaur.energy <= 100)
+            {
+                dinosaur.energy += 50;
+            }
+            if (dinosaur.health > 0 && dinosaur.health < 85)
+            {
+                dinosaur.health += 15;
+            }
         }
 
     }
