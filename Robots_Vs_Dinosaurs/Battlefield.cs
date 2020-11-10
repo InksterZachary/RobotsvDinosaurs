@@ -20,5 +20,9 @@ namespace Robots_Vs_Dinosaurs
         }
 
         //member methods
+        public string Run(string victor)
+        {
+
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int energy;
         public int attackPower;
+        public List<Action<Robot>> dinoAttacks;
+        
         
         //constructors
         public Dinosaur(string type, int health, int energy, int attackPower)
@@ -20,9 +22,16 @@ namespace Robots_Vs_Dinosaurs
             this.health = health;
             this.energy = energy;
             this.attackPower = attackPower;
+            dinoAttacks = new List<Action<Robot>>();
         }
         
         //member methods
+        public void AttackList()
+        {
+            dinoAttacks.Add(JawDropper);
+            dinoAttacks.Add(MeatGrinder);
+            dinoAttacks.Add(Calamity);
+        }
         public void JawDropper(Robot robot)
         {
             if (energy > 25)
@@ -72,27 +81,26 @@ namespace Robots_Vs_Dinosaurs
                 robot.health -= robot.health;
             }
         }
-        public void Calamity(List<Robot>roboTeam)
+        public void Calamity(Robot robot)
         {
-            if(energy > 40)
+
+            if (energy > 40)
             {
                 energy -= 40;
             }
-            else if(energy < 40)
+            else if (energy < 40)
             {
                 energy -= energy;
             }
-            foreach(Robot robot in roboTeam)
+            if (robot.health > 20)
             {
-                if(robot.health > 20)
-                {
-                    robot.health -= 20;
-                }
-                else if(robot.health < 20)
-                {
-                    robot.health -= robot.health;
-                }
+                robot.health -= 20;
             }
+            else if (robot.health < 20)
+            {
+                robot.health -= robot.health;
+            }
+            
         }
     }
 }
