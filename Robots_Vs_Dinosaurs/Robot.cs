@@ -90,6 +90,28 @@ namespace Robots_Vs_Dinosaurs
                 health -= health;
             }
         }
+        public void GroupAttack(List<Dinosaur> dinoTeam)
+        {
+            if (powerLevel > 30)
+            {
+                powerLevel -= 30;
+            }    
+            else if(powerLevel < 30)
+            {
+                powerLevel -= powerLevel;
+            }
+            foreach(Dinosaur dinosaur in dinoTeam)
+            {
+                if(health > 10)
+                {
+                    health -= 10;
+                }
+                else if(health < 10)
+                {
+                    health -= health;
+                }
+            }
+        }
 
     }
 }
