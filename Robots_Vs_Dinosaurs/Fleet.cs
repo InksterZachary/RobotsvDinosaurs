@@ -25,7 +25,8 @@ namespace Robots_Vs_Dinosaurs
             Robot metalHead = new Robot("Metal Head", 200, 100, shotGun);
             Robot terminator = new Robot("Terminator", 500, 250, gatGun);
             robots.Add(cyborg);
-
+            robots.Add(metalHead);
+            robots.Add(terminator);
 
         }
     }
