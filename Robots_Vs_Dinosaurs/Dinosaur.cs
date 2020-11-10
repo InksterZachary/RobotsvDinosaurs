@@ -53,6 +53,46 @@ namespace Robots_Vs_Dinosaurs
                 dinosaur.health += 15;
             }
         }
-
+        public void MeatGrinder(Robot robot)
+        {
+            if(energy >= 25)
+            {
+                energy -= 25;
+            }
+            else if(energy < 25)
+            {
+                energy -= energy;
+            }
+            if(robot.health >= 20)
+            {
+                robot.health -= 20;
+            }
+            else if(robot.health < 20)
+            {
+                robot.health -= robot.health;
+            }
+        }
+        public void Calamity(List<Robot>roboTeam)
+        {
+            if(energy > 40)
+            {
+                energy -= 40;
+            }
+            else if(energy < 40)
+            {
+                energy -= energy;
+            }
+            foreach(Robot robot in roboTeam)
+            {
+                if(robot.health > 20)
+                {
+                    robot.health -= 20;
+                }
+                else if(robot.health < 20)
+                {
+                    robot.health -= robot.health;
+                }
+            }
+        }
     }
 }

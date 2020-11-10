@@ -8,11 +8,11 @@ namespace Robots_Vs_Dinosaurs
 {
     class Fleet
     {
-        public List<Robot> robots;
+        public List<Robot> roboTeam;
 
         public Fleet()
         {
-            robots = new List<Robot>();
+            roboTeam = new List<Robot>();
             populateFleet();
         }
         public void populateFleet()
@@ -24,9 +24,9 @@ namespace Robots_Vs_Dinosaurs
             Robot cyborg = new Robot("Cyborg", 100, 200, laserBlaster);
             Robot metalHead = new Robot("Metal Head", 200, 100, shotGun);
             Robot terminator = new Robot("Terminator", 500, 250, gatGun);
-            robots.Add(cyborg);
-            robots.Add(metalHead);
-            robots.Add(terminator);
+            roboTeam.Add(cyborg);
+            roboTeam.Add(metalHead);
+            roboTeam.Add(terminator);
 
         }
     }
