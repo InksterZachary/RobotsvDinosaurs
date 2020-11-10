@@ -22,7 +22,27 @@ namespace Robots_Vs_Dinosaurs
         }
         
         //member methods
+        public void JawDropper(Robot robot)
+        {
+            if (energy > 25)
+            {
+                energy -= 25;
+            }
+            else if(energy < 25)
+            {
+                energy -= energy;
+            }
+            if (robot.health > 40)
+            {
+                robot.health -= 40;
+            }
+            else if(robot.health < 40)
+            {
+                robot.health -= robot.health;
+            }
 
+            
+        }
 
     }
 }
