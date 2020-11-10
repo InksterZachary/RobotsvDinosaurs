@@ -23,11 +23,11 @@ namespace Robots_Vs_Dinosaurs
             this.energy = energy;
             this.attackPower = attackPower;
             dinoAttacks = new List<Action<Robot>>();
-            AttackList();
+            DinoAttackList();
         }
         
         //member methods
-        public void AttackList()
+        public void DinoAttackList()
         {
             dinoAttacks.Add(JawDropper);
             dinoAttacks.Add(MeatGrinder);

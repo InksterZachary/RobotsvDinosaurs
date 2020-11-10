@@ -10,19 +10,22 @@ namespace Robots_Vs_Dinosaurs
     class Battlefield
     {
         //member variables
-        Herd herd = new Herd();
-        Fleet fleet = new Fleet();
+        public Herd herd;
+        public Fleet fleet;
         //constructors
         public Battlefield()
         {
-            herd.populateHerd();
-            fleet.populateFleet();
+            herd = new Herd();
+            fleet = new Fleet();
         }
 
         //member methods
-        public string Run(string victor)
+        public string Run(string victor) //If herd is a member variable of Battlefiel.cs why don't I have access to it's construct "dinoTeam"
         {
+            while(herd.dinoTeam.Count > 0 && fleet.roboTeam.Count > 0)
+            {
 
+            }
         }
     }
 }
