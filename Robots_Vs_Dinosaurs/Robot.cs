@@ -43,7 +43,7 @@ namespace Robots_Vs_Dinosaurs
             }
             else
             {
-                health = 0;
+                health -= health;
             }
             //if attack hits dinosaur increase powerlevel by 2
             //if attack misses dinosaur nothing happens
@@ -56,15 +56,38 @@ namespace Robots_Vs_Dinosaurs
             }
             else if (powerLevel < 20)
             {
-                powerLevel = 0;
+                powerLevel -= powerLevel;
             }
-            if(health < 30)
+            if(health < 30 && health != 0)
             {
                 health += 25;
             }
             else if(health > 30)
             {
                 health += 15;
+            }
+            else if(health == 0)
+            {
+                Console.WriteLine("Robot has already been decommissioned. Can't be rebuilt.");
+            }
+        }
+        public void Spray(Dinosaur dinosaur)
+        {
+            if(powerLevel >= 10)
+            {
+                powerLevel -= 10;
+            }
+            else if(powerLevel < 10)
+            {
+                powerLevel -= powerLevel;
+            }
+            if(health >= 35)
+            {
+                health -= 35;
+            }
+            else if(health < 35)
+            {
+                health -= health;
             }
         }
 
