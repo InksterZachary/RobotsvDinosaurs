@@ -10,6 +10,9 @@ namespace Robots_Vs_Dinosaurs
     {
         static void Main(string[] args)
         {
+            Battlefield battleOne = new Battlefield();
+            battleOne.Run();
+            Console.ReadLine();
         }
     }
 }

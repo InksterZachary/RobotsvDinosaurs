@@ -15,6 +15,25 @@ namespace Robots_Vs_Dinosaurs
             roboTeam = new List<Robot>();
             populateFleet();
         }
+        public void FleetAttack(Herd herd)
+        {
+            //We have two lists ROBOTS and DINOSAURS
+            for(int i =0; i < roboTeam.Count; i++)
+            {
+                if(i < herd.dinoTeam.Count)
+                {
+                    bool fatality = roboTeam[i].Devastation(herd.dinoTeam[i]);
+                    if(fatality)
+                    {
+                        herd.dinoTeam.RemoveAt(i);
+                    }
+                    
+                }
+            }
+            //All living robots should attack their opponent
+            //if opponent is present attack
+            //else dont attack
+        }
         public void populateFleet()
         {
             Weapon laserBlaster = new Weapon("Laser Blaster", "Energy", 25);
@@ -28,6 +47,18 @@ namespace Robots_Vs_Dinosaurs
             roboTeam.Add(metalHead);
             roboTeam.Add(terminator);
 
+            if (cyborg.health == 0)
+            {
+                roboTeam.Remove(cyborg);
+            }
+            if (metalHead.health == 0)
+            {
+                roboTeam.Remove(metalHead);
+            }
+            if (terminator.health == 0)
+            {
+                roboTeam.Remove(terminator);
+            }
         }
     }
 }

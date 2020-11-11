@@ -14,7 +14,7 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int powerLevel;
         public Weapon weapon;
-        public List<Action<Dinosaur>> roboAttack;
+        //public List<Action<Dinosaur>> roboAttack;
         
 
         //constructors
@@ -69,14 +69,14 @@ namespace Robots_Vs_Dinosaurs
                 powerLevel += 100;
                 Console.WriteLine("Power level restored");
             }
-            if(dinosaur.health >= 25)
+            if(dinosaur.health >= 50)
             {
-                dinosaur.health -= 25;
+                dinosaur.health -= 50;
                 return true;
             }
             else
             {
-                health -= health;
+                dinosaur.health -= dinosaur.health;
                 return false;
             }
             
@@ -130,9 +130,9 @@ namespace Robots_Vs_Dinosaurs
                 powerLevel += 100;
                 Console.WriteLine("Power levels have been restored to 100");
             }
-            if(dinosaur.health >= 35)
+            if(dinosaur.health >= 75)
             {
-                dinosaur.health -= 35;
+                dinosaur.health -= 75;
                 return true;
             }
             else
@@ -159,14 +159,14 @@ namespace Robots_Vs_Dinosaurs
                 powerLevel += 100;
                 Console.WriteLine("Power levels have been restored to 100");
             }
-            if (health > 40)
+            if (dinosaur.health > 80)
             {
-                health -= 40;
+                dinosaur.health -= 80;
                 return true;
             }
             else 
             {
-                health -= health;
+                dinosaur.health -= dinosaur.health;
                 Console.WriteLine("Dinosaur has been terminated!");
                 return false;
             }

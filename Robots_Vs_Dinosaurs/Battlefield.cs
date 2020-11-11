@@ -20,11 +20,28 @@ namespace Robots_Vs_Dinosaurs
         }
 
         //member methods
-        public string Run(string victor) //If herd is a member variable of Battlefiel.cs why don't I have access to it's construct "dinoTeam"
+        public void Run() 
         {
-            while(herd.dinoTeam.Count > 0 && fleet.roboTeam.Count > 0)
-            {
 
+            while (herd.dinoTeam.Count > 0 && fleet.roboTeam.Count > 0)
+            {
+                fleet.FleetAttack(herd);
+                herd.HerdAttack(fleet);
+            }
+
+            DeclareWinner();
+            
+            
+        }
+        public void DeclareWinner()
+        {
+            if (herd.dinoTeam.Count == 0)
+            {
+                Console.WriteLine("Robots have conquered the world!!");
+            }
+            else if (fleet.roboTeam.Count == 0)
+            {
+                Console.WriteLine("The dinosaurs shall remain free from their enslavers.");
             }
         }
     }
