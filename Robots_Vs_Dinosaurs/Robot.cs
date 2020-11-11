@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -14,6 +15,7 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int powerLevel;
         public Weapon weapon;
+        public Random random;
         //public List<Action<Dinosaur>> roboAttack;
         
 
@@ -24,9 +26,10 @@ namespace Robots_Vs_Dinosaurs
             this.health = health;
             this.powerLevel = powerLevel;
             this.weapon = weapon;
+            
             //roboAttack = new List<Action<Dinosaur>>();
             //RobotAttackList();
-            
+
         }
         
         //member methods
@@ -36,22 +39,29 @@ namespace Robots_Vs_Dinosaurs
            // roboAttack.Add(Spray);
            // roboAttack.Add(Devastation);
        // }
-        //public bool RobotAttack(Dinosaur dinosaur)
-        //{
-            //Random get a random number
-            //switch(randomNumber)
-            //{
-                //case 0:
-                    //LaserBlast(dinosaur);
-                    //break;
-                //case 1:
-                    //Spray(dinosaur);
-                    //break;
-                //case 2:
-                    //Devastation(dinosaur);
-                    //break;
-            //}
-        //}
+
+
+        public bool RobotAttack(Dinosaur dinosaur)
+        {
+            random = new Random();
+            int r = random.Next(0, 4);
+            switch (r)
+            {
+                case 0:
+                    return LaserBlast(dinosaur);
+                    
+                case 1:
+                    return Spray(dinosaur);
+                    
+                case 2:
+                    return Devastation(dinosaur);
+                    
+                case 3:
+                    return LaserRegen(dinosaur);
+                    
+            }
+            return true;
+        }
         public bool LaserBlast(Dinosaur dinosaur) 
         {
             if (powerLevel >= 20)
@@ -72,18 +82,18 @@ namespace Robots_Vs_Dinosaurs
             if(dinosaur.health >= 50)
             {
                 dinosaur.health -= 50;
-                return true;
+                
             }
             else
             {
                 dinosaur.health -= dinosaur.health;
                 return false;
             }
-            
+            return true;
             //if attack hits dinosaur increase powerlevel by 2
             //if attack misses dinosaur nothing happens
         }
-        public void LaserRegen(Dinosaur dinosaur)
+        public bool LaserRegen(Dinosaur dinosaur)
         {
             if (powerLevel >= 20)
             {
@@ -102,15 +112,18 @@ namespace Robots_Vs_Dinosaurs
             {
                 health += 25;
                 Console.WriteLine("Health has been increased by 25!");
+                return true;
             }
             else if(health > 30)
             {
                 health += 15;
                 Console.WriteLine("Health has been increased by 15.");
+                return true;
             }
-            else if(health == 0)
+            else
             {
                 Console.WriteLine("Dinosaur has been killed and can not be resurrected.");
+                return false;
             }
         }
         public bool Spray(Dinosaur dinosaur)
@@ -167,7 +180,7 @@ namespace Robots_Vs_Dinosaurs
             else 
             {
                 dinosaur.health -= dinosaur.health;
-                Console.WriteLine("Dinosaur has been terminated!");
+                Console.WriteLine("Dino-MITED");
                 return false;
             }
            

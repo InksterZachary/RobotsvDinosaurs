@@ -12,6 +12,7 @@ namespace Robots_Vs_Dinosaurs
         public int health;
         public int energy;
         public int attackPower;
+        public Random random;
         //public List<Action<Robot>> dinoAttacks;
         
         
@@ -25,14 +26,35 @@ namespace Robots_Vs_Dinosaurs
            // dinoAttacks = new List<Action<Robot>>();
            // DinoAttackList();
         }
-        
+
         //member methods
         //public void DinoAttackList()
         //{
-           // dinoAttacks.Add(JawDropper);
-            //dinoAttacks.Add(MeatGrinder);
-            //dinoAttacks.Add(Calamity);
+        // dinoAttacks.Add(JawDropper);
+        //dinoAttacks.Add(MeatGrinder);
+        //dinoAttacks.Add(Calamity);
         //}
+        public bool DinosaurAttack(Robot robot)
+        {
+            random = new Random();
+            int r = random.Next(0, 4);
+            switch (r)
+            {
+                case 0:
+                    return JawDropper(robot);
+
+                case 1:
+                    return HideRecover(robot);
+
+                case 2:
+                    return MeatGrinder(robot);
+
+                case 3:
+                    return Calamity(robot);
+
+            }
+            return true;
+        }
         public bool JawDropper(Robot robot)
         {
             if (energy > 25)
@@ -57,11 +79,12 @@ namespace Robots_Vs_Dinosaurs
             else if(robot.health < 40)
             {
                 robot.health -= robot.health;
+                Console.WriteLine("Robo-SPLOSION");
                 return false;
             }
             return true;
         }
-        public void HideRecover(Robot robot)
+        public bool HideRecover(Robot robot)
         {
             if(energy > 50)
             {
@@ -80,6 +103,7 @@ namespace Robots_Vs_Dinosaurs
             {
                 health += 15;
             }
+            return true;
         }
         public bool MeatGrinder(Robot robot)
         {

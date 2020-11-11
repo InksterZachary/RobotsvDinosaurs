@@ -22,7 +22,7 @@ namespace Robots_Vs_Dinosaurs
             {
                 if(i < herd.dinoTeam.Count)
                 {
-                    bool fatality = roboTeam[i].Devastation(herd.dinoTeam[i]);
+                    bool fatality = roboTeam[i].RobotAttack(herd.dinoTeam[i]);
                     if(fatality)
                     {
                         herd.dinoTeam.RemoveAt(i);

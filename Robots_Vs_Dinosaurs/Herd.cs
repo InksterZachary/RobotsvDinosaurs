@@ -28,7 +28,7 @@ namespace Robots_Vs_Dinosaurs
             {
                 if (i < fleet.roboTeam.Count)
                 {
-                    bool destruction = dinoTeam[i].JawDropper(fleet.roboTeam[i]);
+                    bool destruction = dinoTeam[i].DinosaurAttack(fleet.roboTeam[i]);
                     if(destruction)
                     {
                         fleet.roboTeam.RemoveAt(i);
